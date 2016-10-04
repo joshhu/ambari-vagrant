@@ -1,6 +1,5 @@
 ambari-vagrant
 ==============
 
-Vagrant setup for creating Ambari development/test virtual machines
+精簡化的ambari-vagrant，只使用centos6.4而已。
 
-Please see: https://cwiki.apache.org/confluence/display/AMBARI/Quick+Start+Guide

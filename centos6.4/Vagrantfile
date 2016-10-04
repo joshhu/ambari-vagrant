@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", 3072] # RAM allocated to each VM
+    vb.customize ["modifyvm", :id, "--memory", 2048] # RAM allocated to each VM
   end
 
   config.vm.provision :shell, :path => "bootstrap.sh"
@@ -47,47 +47,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     c6404.vm.hostname = "c6404.ambari.apache.org"
     c6404.vm.network :private_network, ip: "192.168.64.104"
   end
-
-  config.vm.define :c6405 do |c6405|
-    c6405.vm.hostname = "c6405.ambari.apache.org"
-    c6405.vm.network :private_network, ip: "192.168.64.105"
-  end
-
-  config.vm.define :c6406 do |c6406|
-    c6406.vm.hostname = "c6406.ambari.apache.org"
-    c6406.vm.network :private_network, ip: "192.168.64.106"
-  end
-
-  config.vm.define :c6407 do |c6407|
-    c6407.vm.hostname = "c6407.ambari.apache.org"
-    c6407.vm.network :private_network, ip: "192.168.64.107"
-  end
-
-  config.vm.define :c6408 do |c6408|
-    c6408.vm.hostname = "c6408.ambari.apache.org"
-    c6408.vm.network :private_network, ip: "192.168.64.108"
-  end
-
-  config.vm.define :c6409 do |c6409|
-    c6409.vm.hostname = "c6409.ambari.apache.org"
-    c6409.vm.network :private_network, ip: "192.168.64.109"
-  end
-
-  config.vm.define :c6410 do |c6410|
-    c6410.vm.hostname = "c6410.ambari.apache.org"
-    c6410.vm.network :private_network, ip: "192.168.64.110"
-  end
-
-
-
-
-
-
-
-
-
-
-
 
 
   # Create a forwarded port mapping which allows access to a specific port
