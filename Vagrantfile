@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://naruh.sakura.ne.jp/vagrant/ubuntu-14-04-x64-virtualbox.box"
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", 2048] # RAM allocated to each VM
+    vb.customize ["modifyvm", :id, "--memory", 4096] # RAM allocated to each VM
   end
 
   config.vm.provision :shell, :path => "bootstrap.sh"
@@ -40,9 +40,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     u1403.vm.hostname = "u1403.ambari.apache.org"
     u1403.vm.network :private_network, ip: "192.168.14.103"
   end
-
+=begin
   config.vm.define :u1404 do |u1404|
     u1404.vm.hostname = "u1404.ambari.apache.org"
     u1404.vm.network :private_network, ip: "192.168.14.104"
   end
+=end
 end
