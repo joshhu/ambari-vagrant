@@ -7,7 +7,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu14.4"
+  #config.vm.box = "ubuntu14.4"
+  config.vm.box = "ubuntu/trusty64"
 
   # Fixes changes from https://github.com/mitchellh/vagrant/pull/4707
   config.ssh.insert_key = false
@@ -16,10 +17,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # doesn't already exist on the user's system.
 
   # Ubuntu 14.04 x64 VM with VirtualBox 4.3.10 Guest Additions
-  config.vm.box_url = "http://naruh.sakura.ne.jp/vagrant/ubuntu-14-04-x64-virtualbox.box"
+  #config.vm.box_url = "http://naruh.sakura.ne.jp/vagrant/ubuntu-14-04-x64-virtualbox.box"
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", 2048] # RAM allocated to each VM
+    vb.customize ["modifyvm", :id, "--memory", 4096] # RAM allocated to each VM
   end
 
   config.vm.provision :shell, :path => "bootstrap.sh"
