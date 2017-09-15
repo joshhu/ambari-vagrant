@@ -1,6 +1,6 @@
-# 用vagrant安裝一個四台ubuntu 14.04主機的ambari hadoop+spark
+# 用vagrant安裝一個三台ubuntu 14.04主機的ambari hadoop+spark
 ## 前言
-有鑑於網路上的ambari-vagrant.git這個專案太複雜，因此我把整個ambari安裝的過程簡化到只有四台ubuntu14.04的主機來安裝，下面就是完整的安裝步驟。
+有鑑於網路上的ambari-vagrant.git這個專案太複雜，因此我把整個ambari安裝的過程簡化到只有3台ubuntu14.04的主機來安裝，下面就是完整的安裝步驟。
 
 ## 必要元件
 
@@ -9,11 +9,12 @@
 * git
 * Virtualbox
 * vagrant 1.7+
-* vagrant scp plugin
+* vagrant plugin install scp
+* vagrant plugin install vbguest
 
 ## 安裝
 
-* 先將主系統的/etc/hosts修改，加入四台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限。
+* 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限。
 * 先clone這個git，然後在專案根目錄下，輸入```./up.sh```啟動三台VM。
 * 啟動成功之後，使用```vagrant ssh u1401```進入第一台主機。
 * 切換到root權限開始安裝

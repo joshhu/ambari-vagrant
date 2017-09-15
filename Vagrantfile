@@ -29,20 +29,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # u1401.vm.provision :shell, :path => "dev-bootstrap.sh"
     u1401.vm.hostname = "u1401.ambari.apache.org"
     u1401.vm.network :private_network, ip: "192.168.14.101"
+    u1401.vm.provision "shell", inline: "echo never > /sys/kernel/mm/transparent_hugepage/enabled"
+    u1401.vm.provision "shell", inline: "locale-gen zh_TW.UTF-8"
+    #u1401.vm.network :forwarded_port, guest: 8080, host: 8080
   end
 
   config.vm.define :u1402 do |u1402|
     u1402.vm.hostname = "u1402.ambari.apache.org"
     u1402.vm.network :private_network, ip: "192.168.14.102"
+    u1402.vm.provision "shell", inline: "echo never > /sys/kernel/mm/transparent_hugepage/enabled"
+    u1402.vm.provision "shell", inline: "locale-gen zh_TW.UTF-8"
   end
 
   config.vm.define :u1403 do |u1403|
     u1403.vm.hostname = "u1403.ambari.apache.org"
     u1403.vm.network :private_network, ip: "192.168.14.103"
-  end
-
-  config.vm.define :u1404 do |u1404|
-    u1404.vm.hostname = "u1404.ambari.apache.org"
-    u1404.vm.network :private_network, ip: "192.168.14.104"
+    u1403.vm.provision "shell", inline: "echo never > /sys/kernel/mm/transparent_hugepage/enabled"
+    u1403.vm.provision "shell", inline: "locale-gen zh_TW.UTF-8"
   end
 end
