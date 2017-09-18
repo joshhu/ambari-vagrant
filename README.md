@@ -18,8 +18,6 @@
 * 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限。
 * 先clone這個git，然後在專案根目錄下，輸入```./up.sh```啟動三台VM。
 * 啟動成功之後，使用```vagrant ssh u1401```進入第一台主機。
-* 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱`appped-to-etc-hosts.txt`，Linux及Mac系統下要使用root權限。
-* 先clone這個git，然後在專案根目錄下，輸入`./up.sh`啟動三台VM。
 * 啟動成功之後，使用`vagrant ssh u1401`進入第一台主機。
 * 切換到root權限開始安裝
 
