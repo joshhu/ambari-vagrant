@@ -1,1 +1,2 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/joshhu/workspace/bigdata/ambari-vagrant","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/ubuntu/mnt/workspace/ambari-vagrant","disabled":false,"__vagrantfile":true}}}
+m
