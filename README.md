@@ -14,6 +14,7 @@
 ## for中原大學資管同學
 
 ```
+https://www.vagrantup.com/downloads.html
 sudo rm -rf /usr/local/bin/vagrant
 sudo rm -rf /var/lib/gems/2.3.0/gems/vagrant-1.5.0/
 cd ~
