@@ -14,14 +14,22 @@
 ## for中原大學資管同學
 
 ```
+sudo rm -rf /usr/local/bin/vagrant
+sudo rm -rf /var/lib/gems/2.3.0/gems/vagrant-1.5.0/
+cd ~
+dkpg -i vagrant_2.0.0_x86_64.deb
+
+
 sudo mount /dev/sdb ~/mnt
+sudo chown -R ubuntu:ubuntu mnt/
+cd mnt
+mkdir workspace
+mkdir VMs
 cd mnt
 mkdir VMs
 mkdir workspace
+
 vboxmanger setproperty machinefolder ~/mnt/VMs
-sudo rm -rf /usr/local/bin/vagrant
-<remove ruby version vagrant>
-<dpkg -i vagrant>
 ```
 
 
