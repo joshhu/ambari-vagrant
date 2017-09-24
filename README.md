@@ -30,12 +30,12 @@ cd mnt
 mkdir VMs
 mkdir workspace
 
-vboxmanger setproperty machinefolder ~/mnt/VMs
+vboxmanage setproperty machinefolder ~/mnt/VMs
 ```
 
 
 ## 安裝
-
+* `git clone https://github.com/joshhu/ambari-vagrant.git`
 * 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限。
 * 先clone這個git，然後在專案根目錄下，輸入```./up.sh```啟動三台VM。
 * 執行`cp ~/.vagrant.d/insecured_key .`
