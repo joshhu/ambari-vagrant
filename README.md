@@ -63,3 +63,22 @@ ambari-server start
 
 * 建議只安裝```HDFS, MapReduce2, YARN, Tez, Hive Hbase, Pig, Sqoop, ZooKeeper, Ambari Metrics, Spark```即可。
  
+## 20171001 Hadoop課程
+
+<https://github.com/joshhu/ambari-vagrant>
+
+### 先別忘了將d磁碟掛載到系統中
+```
+sudo mount /dev/sdb ~/mnt
+```
+
+### 啟動三台節點的Ambari叢集
+
+```
+cd ~/mnt/workspace
+./up.sh
+```
+
+<http://u1401.ambari.apache.org:8080>
+
+
