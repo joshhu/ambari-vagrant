@@ -81,4 +81,86 @@ cd ~/mnt/workspace
 
 <http://u1401.ambari.apache.org:8080>
 
+### 讓spark能使用hive view
 
+先建立spark使用者對應到系統，用spark登入，然後在hdfs->config->advanced->custom core-site，加入兩筆記錄
+```
+hadoop.proxyuser.root.groups *
+hadoop.proxyuser.root.hosts *
+```
+存檔後重啟所有受影響服務。
+
+### 下載範例資料
+
+大聯盟：Batting.csv
+航  班：2008.csv
+計程車：taxi.csv
+
+### hive程式碼
+
+建立資料庫
+```
+create database bigdata;
+```
+
+建立表
+```
+use bigdata;
+create table bigdata.batting
+(playerID STRING, yearID STRING, stint INT, teamID STRING, lgID STRING, G INT, AB INT, R INT, H INT, twoB INT, threeB INT, HR INT, RBI INT, SB INT, CS INT, BB INT, SO INT, IBB INT, HBP INT, SH INT, SF INT, GIDP INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' tblproperties("skip.header.line.count"="1"); 
+```
+
+檢查表格是否建立成功
+```
+use bigdata;
+select * from batting;
+```
+
+
+載入外部檔案
+```
+use bigdata;
+LOAD DATA INPATH '/user/spark/Batting.csv' OVERWRITE INTO TABLE bigdata.batting;
+```
+
+列出2010年後打擊率最高的選手(必須滿足100個打數以上)
+```
+use bigdata;
+select playerID, yearID, ab, h, twob, threeb, hr, (h/ab)* 10 Rate from Batting where ab >= 100 and yearid >2010 order by Rate desc;
+```
+
+## Spark python程式
+
+先下載Anaconda並安裝
+```
+wget https://repo.continuum.io/archive/Anaconda3-5.0.0-Linux-x86_64.sh
+chmod +x Anaconda3-5.0.0-Linux-x86_64.sh
+./Anaconda3-5.0.0-Linux-x86_64.sh
+```
+
+### 建立一個python2.7的環境給Spark用
+```
+conda create -n py27 python=2.7 anaconda
+source activate py27
+jupyter notebook --ip=<你的u1401的ip>
+```
+此時只能執行jupyter notebook, 但還不能執行pyspark
+
+在你的.bashrc中加入下面三行
+```
+unset XDG_RUNTIME_DIR
+export PYSPARK_DRIVER_PYTHON=jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+```
+
+啟動pyspark時就直接進入jupyter, 但是用localhost，因此還要指定ip
+
+先建立jupyter notebook的設定檔
+```
+jupyter notebook --generate-config
+```
+
+修改.jupyter下的設定檔，把ip改為你主機的ip，修改項目為
+c.NotebookApp.ip = <u1401>的ip
+
+下次啟動pyspark時，就可以直接進入notebook並且可以指定ip進入。
