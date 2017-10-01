@@ -27,12 +27,19 @@
 
 ```ssh
 # 加入第一台VM主機中的apt source來源
+
 wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.2.2.0/ambari.list
+
 # 將apt的更新key加入，確定apt source來源是正確的
+
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
+
 # 開始更新來源
+
 apt-get update
+
 # 開始安裝，使用-y參數預設全部問題都是yes
+
 apt-get install ambari-server -y
 ```
 
