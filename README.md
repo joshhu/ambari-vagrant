@@ -75,7 +75,7 @@ sudo mount /dev/sdb ~/mnt
 ### 啟動三台節點的Ambari叢集
 
 ```
-cd ~/mnt/workspace
+cd ~/mnt/workspace/ambari-vagrant
 ./up.sh
 ```
 
