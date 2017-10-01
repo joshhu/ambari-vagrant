@@ -25,7 +25,7 @@
 
 ## 開始在第一台VM主機u1401中設定安裝Ambari
 
-```
+```ssh
 # 加入第一台VM主機中的apt source來源
 wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.2.2.0/ambari.list
 # 將apt的更新key加入，確定apt source來源是正確的
