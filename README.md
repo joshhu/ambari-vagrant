@@ -7,6 +7,7 @@
 下面是必要的：
 
 * 帶圖型介面的Linux或是Mac OS, Windows不支援
+* 16GB以上的記憶體
 * git
 * Virtualbox 5.1.0+
 * vagrant 2.0.0+
