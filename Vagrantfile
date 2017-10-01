@@ -10,7 +10,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.box = "ubuntu14.4"
   config.vm.box = "ubuntu/trusty64"
 
+  config.vm.synced_folder ".", "/vagrant",
+      owner: "root", group: "root"
+  #
   # Fixes changes from https://github.com/mitchellh/vagrant/pull/4707
+    
+  # 建立虛擬機之後，在虛擬機中執行的程式
+  config.vm.provision "shell", path: "bootstrap.sh"
+  #
+
   config.ssh.insert_key = false
 
   # The url from where the 'config.vm.box' box will be fetched if it
@@ -19,11 +27,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Ubuntu 14.04 x64 VM with VirtualBox 4.3.10 Guest Additions
   #config.vm.box_url = "http://naruh.sakura.ne.jp/vagrant/ubuntu-14-04-x64-virtualbox.box"
 
+
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", 4096] # RAM allocated to each VM
   end
 
-  config.vm.provision :shell, :path => "bootstrap.sh"
 
   config.vm.define :u1401 do |u1401|
     # uncomment the line below to set up the ambari dev environment

@@ -1,5 +1,0 @@
-# ubuntu 14.4 hosts
-192.168.14.101 u1401.ambari.apache.org u1401
-192.168.14.102 u1402.ambari.apache.org u1402
-192.168.14.103 u1403.ambari.apache.org u1403
-192.168.14.104 u1404.ambari.apache.org u1404
