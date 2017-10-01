@@ -1,4 +1,4 @@
-# 用vagrant安裝一個三台ubuntu 14.04主機的ambari hadoop+spark
+# 用vagrant安裝一個三台ubuntu 14.04主機的ambari hadoop完整生態圈
 ## 前言
 有鑑於網路上的ambari-vagrant.git這個專案太複雜，因此我把整個ambari安裝的過程簡化到只有3台ubuntu14.04的主機來安裝，下面就是完整的安裝步驟。
 
