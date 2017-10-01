@@ -6,47 +6,33 @@
 
 下面是必要的：
 
-* 帶圖型介面的Linux或是Mac OS(不推薦Windows)
+* 帶圖型介面的Linux或是Mac OS, Windows不支援
 * git
-* Virtualbox
-* vagrant
-
-## for中原大學資管同學
-
-<https://www.vagrantup.com/downloads.html>
-```
-sudo rm -rf /usr/local/bin/vagrant
-sudo rm -rf /var/lib/gems/2.3.0/gems/vagrant-1.5.0/
-cd ~
-dkpg -i vagrant_2.0.0_x86_64.deb
+* Virtualbox 5.1.0+
+* vagrant 2.0.0+
 
 
-sudo mount /dev/sdb ~/mnt
-sudo chown -R ubuntu:ubuntu mnt/
-cd mnt
-mkdir workspace
-mkdir VMs
-cd mnt
-mkdir VMs
-mkdir workspace
-
-vboxmanage setproperty machinefolder ~/mnt/VMs
-```
-
-
-## 安裝
+## 前置作業
 * `git clone https://github.com/joshhu/ambari-vagrant.git`
-* 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限。
-* 先clone這個git，然後在專案根目錄下，輸入```./up.sh```啟動三台VM。
-* 執行`cp ~/.vagrant.d/insecured_key .`
-* 啟動成功之後，使用```vagrant ssh u1401```進入第一台主機。
-* 切換到root權限開始安裝
+* 進入工作目錄，輸入`cd ambari-vagrant`。
+* 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限才能修改`/etc/hosts`檔案。
+* 在專案根目錄下，輸入`./up.sh`啟動三台VM。
+
+## 進入第一台VM主機安裝
+
+* 啟動成功之後，使用`vagrant ssh u1401`進入第一台主機。
+* 在第一台VM主機u1401中切換到root權限, `sudo su - `。
+
+## 開始在第一台VM主機u1401中設定安裝Ambari
 
 ```
-sudo su -
+# 加入第一台VM主機中的apt source來源
 wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.2.2.0/ambari.list
+# 將apt的更新key加入，確定apt source來源是正確的
 apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
+# 開始更新來源
 apt-get update
+# 開始安裝，使用-y參數預設全部問題都是yes
 apt-get install ambari-server -y
 ```
 
