@@ -96,6 +96,18 @@ hadoop.proxyuser.root.hosts *
 航  班：2008.csv
 計程車：taxi.csv
 
+in U1401
+確定root身份
+
+chown spark:hdfs Batting.csv
+
+回到spark
+ 
+exit
+sudo su - spark
+cd ~
+hdfs dfs -put Batting.csv
+
 ### hive程式碼
 
 建立資料庫
