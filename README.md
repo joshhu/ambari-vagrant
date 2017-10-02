@@ -17,6 +17,7 @@
 ## 檢查軟體版本
 
 vagrant: `vagrant -v`
+
 virtualbox: `vboxmanage -v`
 
 ## 下載位址
