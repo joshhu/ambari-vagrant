@@ -7,11 +7,21 @@
 下面是必要的：
 
 * 帶圖型介面的Linux或是Mac OS, Windows不支援
+* Firefox/Chrome/Safari瀏覽器 
 * 16GB以上的記憶體
-* git
+* 50G以上的磁碟空間
+* git(`sudo apt-get install git`)
 * Virtualbox 5.1.0+
 * vagrant 2.0.0+
 
+## 檢查軟體版本
+
+vagrant: `vagrant -v`
+virtualbox: `vboxmanage -v`
+
+## 下載位址
+vagrant<https://www.vagrantup.com/downloads.html>
+Virtualbox<https://www.virtualbox.org/wiki/Downloads>
 
 ## 前置作業
 * `git clone https://github.com/joshhu/ambari-vagrant.git`
