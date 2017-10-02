@@ -8,11 +8,13 @@
 
 * 帶圖型介面的Linux或是Mac OS, Windows不支援
 * Firefox/Chrome/Safari瀏覽器 
-* 16GB以上的記憶體
+* 16GB以上的記憶體(* 8G記憶體的機器請參考下面"8G記憶體注意事項" *)
 * 50G以上的磁碟空間
 * git(`sudo apt-get install git`)
 * Virtualbox 5.1.0+
 * vagrant 2.0.0+
+
+
 
 ## 檢查軟體版本
 
@@ -30,6 +32,16 @@ Virtualbox: <https://www.virtualbox.org/wiki/Downloads>
 * 進入工作目錄，輸入`cd ambari-vagrant`。
 * 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限才能修改`/etc/hosts`檔案。
 * 在專案根目錄下，輸入`./up.sh`啟動三台VM。
+
+## * 8G記憶體注意事項 *
+
+如果你使用的電腦記憶體只有8G，請使用`Vagrantfile8G`這個設定檔，方法如下：
+
+```
+mv Vagrantfile Vagrantfile16G
+mv Vagrantfile8G Vagrantfile
+```
+
 
 ## 進入第一台VM主機安裝
 
