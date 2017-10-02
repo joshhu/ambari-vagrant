@@ -21,9 +21,9 @@ vagrant: `vagrant -v`
 virtualbox: `vboxmanage -v`
 
 ## 下載位址
-vagrant<https://www.vagrantup.com/downloads.html>
+vagrant: <https://www.vagrantup.com/downloads.html>
 
-Virtualbox<https://www.virtualbox.org/wiki/Downloads>
+Virtualbox: <https://www.virtualbox.org/wiki/Downloads>
 
 ## 前置作業
 * `git clone https://github.com/joshhu/ambari-vagrant.git`
