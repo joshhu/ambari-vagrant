@@ -78,7 +78,7 @@ ambari-server setup -s #設定Ambari，使用-s就是silent參數，不互動直
 ambari-server start #安裝完畢直啟動Ambari Server
 ```
 
-* 之後進入http://u1401.ambari.apache.org:8080/即可進入圖型安裝介面。
+* 之後進入<http://u1401.ambari.apache.org:8080/>即可進入圖型安裝介面。
 * 預設帳號及密碼admin/admin
 
 ### Ambari的安裝
