@@ -14,33 +14,37 @@
 * Virtualbox 5.1.0+
 * vagrant 2.0.0+
 
-
-
 ## 檢查軟體版本
 
 vagrant: `vagrant -v`
 
 virtualbox: `vboxmanage -v`
 
-## 下載位址
+## 前述軟體下載位址
 vagrant: <https://www.vagrantup.com/downloads.html>
 
 Virtualbox: <https://www.virtualbox.org/wiki/Downloads>
 
-## 前置作業
-* `git clone https://github.com/joshhu/ambari-vagrant.git`
-* 進入工作目錄，輸入`cd ambari-vagrant`。
-* 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限才能修改`/etc/hosts`檔案。
-* 在專案根目錄下，輸入`./up.sh`啟動三台VM。
+## 先Clone這個git repo
 
-## * 8G記憶體注意事項 *
+ `git clone https://github.com/joshhu/ambari-vagrant.git`
+
+## 8G記憶體注意事項
 
 如果你使用的電腦記憶體只有8G，請使用`Vagrantfile8G`這個設定檔，方法如下：
 
 ```
+cd ambari-vagrant
 mv Vagrantfile Vagrantfile16G
 mv Vagrantfile8G Vagrantfile
 ```
+在更改了這個設定檔之後，就可以用8G的主機安裝，但注意速度會很慢。
+
+## 開始進行安裝
+
+* 進入工作目錄，輸入`cd ambari-vagrant`。
+* 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限才能修改`/etc/hosts`檔案。
+* 在專案根目錄下，輸入`./up.sh`啟動三台VM。
 
 
 ## 進入第一台VM主機安裝
