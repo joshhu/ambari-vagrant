@@ -57,25 +57,25 @@ mv Vagrantfile8G Vagrantfile
 ```ssh
 # 加入第一台VM主機中的apt source來源
 
-wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.2.2.0/ambari.list
+sudo wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.2.2.0/ambari.list
 
 # 將apt的更新key加入，確定apt source來源是正確的
 
-apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
 
 # 開始更新來源
 
-apt-get update
+sudo apt-get update
 
 # 開始安裝，使用-y參數預設全部問題都是yes
 
-apt-get install ambari-server -y
+sudo apt-get install ambari-server -y
 ```
 
 * 安裝完畢後，輸入下面程式安裝
 ```
-ambari-server setup -s #設定Ambari，使用-s就是silent參數，不互動直接使用預設值
-ambari-server start #安裝完畢直啟動Ambari Server
+sudo ambari-server setup -s #設定Ambari，使用-s就是silent參數，不互動直接使用預設值
+sudo ambari-server start #安裝完畢直啟動Ambari Server
 ```
 
 * 之後進入<http://u1401.ambari.apache.org:8080/>即可進入圖型安裝介面。
