@@ -46,6 +46,12 @@ mv Vagrantfile8G Vagrantfile
 * 先將主系統的/etc/hosts修改，加入3台主機，加入的內容參閱```appped-to-etc-hosts.txt```，Linux及Mac系統下要使用root權限才能修改`/etc/hosts`檔案。
 * 在專案根目錄下，輸入`./up.sh`啟動三台VM。
 
+## 安裝ntp
+
+分別進入三台主機，輸入`vagrant ssh u1401 - 03`
+```
+sudo apt-get install ntp
+```
 
 ## 進入第一台VM主機安裝
 
@@ -57,25 +63,25 @@ mv Vagrantfile8G Vagrantfile
 ```ssh
 # 加入第一台VM主機中的apt source來源
 
-sudo wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.2.2.0/ambari.list
+wget -O /etc/apt/sources.list.d/ambari.list http://public-repo-1.hortonworks.com/ambari/ubuntu14/2.x/updates/2.2.2.0/ambari.list
 
 # 將apt的更新key加入，確定apt source來源是正確的
 
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
+apt-key adv --recv-keys --keyserver keyserver.ubuntu.com B9733A7A07513CAD
 
 # 開始更新來源
 
-sudo apt-get update
+apt-get update
 
 # 開始安裝，使用-y參數預設全部問題都是yes
 
-sudo apt-get install ambari-server -y
+apt-get install ambari-server -y
 ```
 
 * 安裝完畢後，輸入下面程式安裝
 ```
-sudo ambari-server setup -s #設定Ambari，使用-s就是silent參數，不互動直接使用預設值
-sudo ambari-server start #安裝完畢直啟動Ambari Server
+ambari-server setup -s #設定Ambari，使用-s就是silent參數，不互動直接使用預設值
+ambari-server start #安裝完畢直啟動Ambari Server
 ```
 
 * 之後進入<http://u1401.ambari.apache.org:8080/>即可進入圖型安裝介面。
